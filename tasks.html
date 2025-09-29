@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои дела — Рахматжонов Асадбек</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); /* замените на свою картину */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333;
+        }
+        header {
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.85);
+            border-radius: 15px;
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        .task-card {
+            background-color: #fff;
+            border: 2px solid #e53935;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .task-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .task-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            background-color: #ccc;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        .task-info {
+            flex: 1;
+        }
+        .task-info h3 {
+            margin-top: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: rgba(221,221,221,0.8);
+            border-radius: 10px;
+        }
+        /* Кнопка назад */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #e53935;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .back-button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <a href="index.html" id="back-button" class="back-button">← На главную</a>
+    <h1 id="page-title">Мои дела — Рахматжонов Асадбек</h1>
+    <p id="page-subtitle">Здесь представлены мои работы и проекты</p>
+</header>
+
+<main>
+    <!-- Пример карточки работы -->
+    <div class="task-card">
+        <img src="https://via.placeholder.com/150" alt="Игра" class="task-image">
+        <div class="task-info">
+            <h3 id="task1-title">Моя игра “Super Battle”</h3>
+            <p id="task1-desc">Создана в Unity, многопользовательская, с красивой графикой и уникальными персонажами.</p>
+        </div>
+    </div>
+
+    <div class="task-card">
+        <img src="https://via.placeholder.com/150" alt="Приложение" class="task-image">
+        <div class="task-info">
+            <h3 id="task2-title">Приложение для обучения корейскому языку</h3>
+            <p id="task2-desc">Приложение помогает изучать слова и фразы с интерактивными заданиями.</p>
+        </div>
+    </div>
+
+    <div class="task-card">
+        <img src="https://via.placeholder.com/150" alt="Сайт" class="task-image">
+        <div class="task-info">
+            <h3 id="task3-title">Сайт-портфолио</h3>
+            <p id="task3-desc">Сайт, демонстрирующий мои проекты и работы в области IT, графики и программирования.</p>
+        </div>
+    </div>
+
+    <div class="task-card">
+        <img src="https://via.placeholder.com/150" alt="Услуга" class="task-image">
+        <div class="task-info">
+            <h3 id="task4-title">Услуги IT и графики</h3>
+            <p id="task4-desc">Создание ботов, сайтов, приложений, графических работ и консультации по IT-проектам.</p>
+        </div>
+    </div>
+</main>
+
+
+    <footer>
+        &copy; 2025 Рахматжонов Асадбек. Все права защищены.
+    </footer>
+    <script>
+const texts = {
+    ru: {
+        pageTitle: "Мои дела — Рахматжонов Асадбек",
+        pageSubtitle: "Здесь представлены мои работы и проекты",
+        task1Title: "Моя игра “Super Battle”",
+        task1Desc: "Создана в Unity, многопользовательская, с красивой графикой и уникальными персонажами.",
+        task2Title: "Приложение для обучения корейскому языку",
+        task2Desc: "Приложение помогает изучать слова и фразы с интерактивными заданиями.",
+        task3Title: "Сайт-портфолио",
+        task3Desc: "Сайт, демонстрирующий мои проекты и работы в области IT, графики и программирования.",
+        task4Title: "Услуги IT и графики",
+        task4Desc: "Создание ботов, сайтов, приложений, графических работ и консультации по IT-проектам."
+    },
+    en: {
+        pageTitle: "My Works — Asadbek Rakhmatjonov",
+        pageSubtitle: "Here are my works and projects",
+        task1Title: "My game “Super Battle”",
+        task1Desc: "Created in Unity, multiplayer, with beautiful graphics and unique characters.",
+        task2Title: "Korean learning app",
+        task2Desc: "The app helps to learn words and phrases with interactive exercises.",
+        task3Title: "Portfolio website",
+        task3Desc: "A website showcasing my IT, graphic, and programming projects.",
+        task4Title: "IT and graphics services",
+        task4Desc: "Creating bots, websites, apps, graphic works, and consulting on IT projects."
+    },
+    uz: {
+        pageTitle: "Mening ishlarim — Rahmatjonov Asadbek",
+        pageSubtitle: "Bu yerda mening ishlarim va loyihalarim",
+        task1Title: "Mening o‘yinim “Super Battle”",
+        task1Desc: "Unity’da yaratilgan, ko‘p o‘yinchili, chiroyli grafik va noyob qahramonlar bilan.",
+        task2Title: "Koreys tilini o‘rgatadigan ilova",
+        task2Desc: "Ilova so‘zlar va iboralarni interaktiv mashqlar bilan o‘rgatadi.",
+        task3Title: "Portfoliyo sayti",
+        task3Desc: "IT, grafika va dasturlash loyihalarimni ko‘rsatadigan sayt.",
+        task4Title: "IT va grafika xizmatlari",
+        task4Desc: "Botlar, saytlar, ilovalar, grafik ishlar yaratish va IT loyihalar bo‘yicha maslahatlar."
+    },
+    ko: {
+        pageTitle: "내 작품 — 아사드벡 라흐마트조노프",
+        pageSubtitle: "여기에는 제 작품과 프로젝트가 있습니다",
+        task1Title: "제 게임 “Super Battle”",
+        task1Desc: "Unity에서 제작, 멀티플레이어, 아름다운 그래픽과 독특한 캐릭터 포함.",
+        task2Title: "한국어 학습 앱",
+        task2Desc: "앱은 단어와 문장을 인터랙티브한 연습으로 학습하도록 돕습니다.",
+        task3Title: "포트폴리오 웹사이트",
+        task3Desc: "IT, 그래픽, 프로그래밍 프로젝트를 보여주는 웹사이트.",
+        task4Title: "IT 및 그래픽 서비스",
+        task4Desc: "봇, 웹사이트, 앱, 그래픽 작업 제작 및 IT 프로젝트 컨설팅."
+    }
+};
+
+function setLanguage(lang) {
+    document.getElementById("page-title").textContent = texts[lang].pageTitle;
+    document.getElementById("page-subtitle").textContent = texts[lang].pageSubtitle;
+    document.getElementById("task1-title").textContent = texts[lang].task1Title;
+    document.getElementById("task1-desc").textContent = texts[lang].task1Desc;
+    document.getElementById("task2-title").textContent = texts[lang].task2Title;
+    document.getElementById("task2-desc").textContent = texts[lang].task2Desc;
+    document.getElementById("task3-title").textContent = texts[lang].task3Title;
+    document.getElementById("task3-desc").textContent = texts[lang].task3Desc;
+    document.getElementById("task4-title").textContent = texts[lang].task4Title;
+    document.getElementById("task4-desc").textContent = texts[lang].task4Desc;
+
+    // перевод кнопки назад
+    const backBtn = document.getElementById("back-button");
+    if(lang === "ru") backBtn.textContent = "← На главную";
+    else if(lang === "en") backBtn.textContent = "← Back to Home";
+    else if(lang === "uz") backBtn.textContent = "← Bosh sahifaga";
+    else if(lang === "ko") backBtn.textContent = "← 메인으로";
+}
+
+// При загрузке страницы устанавливаем язык из localStorage
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('siteLanguage') || 'ru';
+    setLanguage(savedLang);
+});
+</script>
+
+</body>
+</html>

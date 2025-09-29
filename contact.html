@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты — Рахматжонов Асадбек</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); /* замените на свою картину */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333;
+        }
+        header {
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.85);
+            border-radius: 15px;
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        .card {
+            background-color: #fff;
+            border: 2px solid #e53935;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .contact-info {
+            font-size: 18px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: rgba(221,221,221,0.8);
+            border-radius: 10px;
+        }
+
+        /* Кнопка назад */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #e53935;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .back-button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+<header>
+    <a href="index.html" id="back-button" class="back-button">← На главную</a>
+    <h1 id="page-title">Контакты — Рахматжонов Асадбек</h1>
+    <p id="page-subtitle">Свяжитесь со мной</p>
+</header>
+
+<main>
+    <!-- Телефон -->
+    <div class="card contact-info">
+        <h2 id="phone-title">Телефон</h2>
+        <p id="phone">+998772692102</p>
+    </div>
+
+    <!-- Email -->
+    <div class="card contact-info">
+        <h2 id="email-title">Email</h2>
+        <p id="email">rahmatjonovasadbek@gmail.com</p>
+    </div>
+
+    <!-- Telegram -->
+    <div class="card contact-info">
+        <h2 id="telegram-title">Telegram</h2>
+        <p id="telegram">Сюда добавлю ссылку или никнейм</p>
+    </div>
+</main>
+
+
+    <footer>
+        &copy; 2025 Рахматжонов Асадбек. Все права защищены.
+    </footer>
+    <script>
+const texts = {
+    ru: {
+        pageTitle: "Контакты — Рахматжонов Асадбек",
+        pageSubtitle: "Свяжитесь со мной",
+        phoneTitle: "Телефон",
+        phone: "+998772692102",
+        emailTitle: "Email",
+        email: "rahmatjonovasadbek@gmail.com",
+        telegramTitle: "Telegram",
+        telegram: "Сюда добавлю ссылку или никнейм"
+    },
+    en: {
+        pageTitle: "Contacts — Asadbek Rakhmatjonov",
+        pageSubtitle: "Get in touch with me",
+        phoneTitle: "Phone",
+        phone: "+998772692102",
+        emailTitle: "Email",
+        email: "rahmatjonovasadbek@gmail.com",
+        telegramTitle: "Telegram",
+        telegram: "Link or username will be added here"
+    },
+    uz: {
+        pageTitle: "Kontaktlar — Rahmatjonov Asadbek",
+        pageSubtitle: "Mening bilan bog‘laning",
+        phoneTitle: "Telefon",
+        phone: "+998772692102",
+        emailTitle: "Email",
+        email: "rahmatjonovasadbek@gmail.com",
+        telegramTitle: "Telegram",
+        telegram: "Bu yerga link yoki username qo‘shaman"
+    },
+    ko: {
+        pageTitle: "연락처 — 아사드벡 라흐마트조노프",
+        pageSubtitle: "저에게 연락하세요",
+        phoneTitle: "전화번호",
+        phone: "+998772692102",
+        emailTitle: "이메일",
+        email: "rahmatjonovasadbek@gmail.com",
+        telegramTitle: "텔레그램",
+        telegram: "여기에 링크 또는 사용자명을 추가할 예정"
+    }
+};
+
+function setLanguage(lang) {
+    document.getElementById("page-title").textContent = texts[lang].pageTitle;
+    document.getElementById("page-subtitle").textContent = texts[lang].pageSubtitle;
+    document.getElementById("phone-title").textContent = texts[lang].phoneTitle;
+    document.getElementById("phone").textContent = texts[lang].phone;
+    document.getElementById("email-title").textContent = texts[lang].emailTitle;
+    document.getElementById("email").textContent = texts[lang].email;
+    document.getElementById("telegram-title").textContent = texts[lang].telegramTitle;
+    document.getElementById("telegram").textContent = texts[lang].telegram;
+
+    // перевод кнопки назад
+    const backBtn = document.getElementById("back-button");
+    if(lang === "ru") backBtn.textContent = "← На главную";
+    else if(lang === "en") backBtn.textContent = "← Back to Home";
+    else if(lang === "uz") backBtn.textContent = "← Bosh sahifaga";
+    else if(lang === "ko") backBtn.textContent = "← 메인으로";
+}
+
+// При загрузке страницы устанавливаем язык из localStorage
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('siteLanguage') || 'ru';
+    setLanguage(savedLang);
+});
+</script>
+
+</body>
+</html>

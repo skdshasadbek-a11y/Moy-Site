@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Моя личная страница</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); 
+            background-size: cover;
+            background-attachment: fixed;
+            color: #333;
+        }
+        header {
+            background-image: url('https://images.unsplash.com/photo-1557683316-973673baf926'); 
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background-color: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px;
+        }
+        .card {
+            background-color: #fff;
+            border: 2px solid #e53935;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+        h2 {
+            margin-top: 0;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(221, 221, 221, 0.8);
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="page-title">Привет! Я Асадбек</h1>
+        <p id="page-subtitle">Добро пожаловать на мою страницу</p>
+         <div id="language-switcher">
+        <select id="language-select">
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+            <option value="uz">O'zbek</option>
+            <option value="ko">한국어</option>
+        </select>
+    </div>
+    </header>
+
+    <main>
+        <!-- Карточка "Обо мне" -->
+        <a href="about.html" class="card" id="about-card">
+            <h2 id="about-title"> Обо мне</h2>
+            <p id="about-text"> Меня зовут Асадбек. Нажмите сюда, чтобы узнать больше обо мне!</p>
+        </a>
+
+        <!-- Карточка "Мои дела" -->
+        <a href ="tasks.html" class="card"  id="tasks-card">
+            <h2 id="tasks-title"> id="tasks-title"Мои дела</h2>
+            <p id="tasks-text"> Посмотрите, чем я занимаюсь и какие проекты делаю!</p>
+        </a>
+
+        <!-- Карточка "Контакты" -->
+        <a href="contact.html" class="card" id="contacts-card" >
+            <h2 id="contacts-title">Контакты</h2>
+            <p id="tasks-text">Нажмите сюда, чтобы узнать, как со мной связаться!</p>
+        </a>
+    </main>
+
+    <footer>
+        &copy; 2025 Асадбек. Все права защищены.
+    </footer>
+    <script>
+const texts = {
+    ru: {
+        pageTitle: "Привет! Я Асадбек",
+        pageSubtitle: "Добро пожаловать на мою страницу",
+        aboutTitle: "Обо мне",
+        aboutText: "Меня зовут Асадбек. Я учусь, играю и создаю проекты.",
+        tasksTitle: "Мои дела",
+        tasksText: "Здесь представлены мои работы и проекты.",
+        contactsTitle: "Контакты",
+        contactsText: "Свяжитесь со мной."
+    },
+    en: {
+        pageTitle: "Hello! I'm Asadbek",
+        pageSubtitle: "Welcome to my page",
+        aboutTitle: "About Me",
+        aboutText: "My name is Asadbek. I study, play games and create projects.",
+        tasksTitle: "My Works",
+        tasksText: "Here are my works and projects.",
+        contactsTitle: "Contacts",
+        contactsText: "Get in touch with me."
+    },
+    uz: {
+        pageTitle: "Salom! Men Asadbekman",
+        pageSubtitle: "Mening sahifamga xush kelibsiz",
+        aboutTitle: "Men haqimda",
+        aboutText: "Mening ismim Asadbek. Men o‘qiyman, o‘yinlar o‘ynayman va loyihalar yarataman.",
+        tasksTitle: "Mening ishlarim",
+        tasksText: "Bu yerda mening ishlarim va loyihalarim ko‘rsatilgan.",
+        contactsTitle: "Kontaktlar",
+        contactsText: "Mening bilan bog‘laning."
+    },
+    ko: {
+        pageTitle: "안녕하세요! 저는 아사드벡입니다",
+        pageSubtitle: "제 페이지에 오신 것을 환영합니다",
+        aboutTitle: "소개",
+        aboutText: "제 이름은 아사드벡입니다. 저는 공부하고, 게임하고, 프로젝트를 만듭니다.",
+        tasksTitle: "내 작품",
+        tasksText: "여기에는 제 작품과 프로젝트가 있습니다.",
+        contactsTitle: "연락처",
+        contactsText: "저에게 연락하세요."
+    }
+};
+
+function setLanguage(lang) {
+    if(document.getElementById("page-title")) document.getElementById("page-title").textContent = texts[lang].pageTitle;
+    if(document.getElementById("page-subtitle")) document.getElementById("page-subtitle").textContent = texts[lang].pageSubtitle;
+
+    if(document.getElementById("about-title")) document.getElementById("about-title").textContent = texts[lang].aboutTitle;
+    if(document.getElementById("about-text")) document.getElementById("about-text").textContent = texts[lang].aboutText;
+
+    if(document.getElementById("tasks-title")) document.getElementById("tasks-title").textContent = texts[lang].tasksTitle;
+    if(document.getElementById("tasks-text")) document.getElementById("tasks-text").textContent = texts[lang].tasksText;
+
+    if(document.getElementById("contacts-title")) document.getElementById("contacts-title").textContent = texts[lang].contactsTitle;
+    if(document.getElementById("contacts-text")) document.getElementById("contacts-text").textContent = texts[lang].contactsText;
+
+    localStorage.setItem('siteLanguage', lang); // сохраняем выбор
+}
+
+// Смена языка при выборе из select
+document.getElementById('language-select').addEventListener('change', (e) => {
+    setLanguage(e.target.value);
+});
+
+// При загрузке страницы устанавливаем сохранённый язык
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('siteLanguage') || 'ru';
+    document.getElementById('language-select').value = savedLang;
+    setLanguage(savedLang);
+});
+</script>
+
+</body>
+</html>

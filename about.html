@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обо мне — Рахматжонов Асадбек</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); /* замените на свою картину */
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333;
+        }
+        header {
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.85);
+            border-radius: 15px;
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        .card {
+            background-color: #fff;
+            border: 2px solid #e53935;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        ul {
+            padding-left: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: rgba(221,221,221,0.8);
+            border-radius: 10px;
+        }
+
+        /* Кнопка назад */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #e53935;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .back-button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <a href="index.html" id="back-button" class="back-button">← На главную</a>
+    <h1 id="page-title">Рахматжонов Асадбек (Нейрон)</h1>
+    <p id="page-subtitle">Личная страница обо мне</p>
+</header>
+
+<main>
+    <div class="card">
+        <h2 id="info-title">Основная информация</h2>
+        <p id="birth"><strong>Дата рождения:</strong> 21.12.2005</p>
+        <p id="city"><strong>Город:</strong> Фергана, Узбекистан</p>
+        <p id="study"><strong>Учёба:</strong> Университет КИУФ, 2 курс, Программирование</p>
+    </div>
+
+    <div class="card">
+        <h2 id="hobby-title">Увлечения и хобби</h2>
+        <ul id="hobby-list">
+            <li>Играю в Mobile Legends</li>
+            <li>Изучаю корейский язык</li>
+            <li>Знаю русский, узбекский, английский, скоро корейский</li>
+            <li>Занимаюсь тяжелой атлетикой и спортом в зале</li>
+            <li>Каждый день уделяю время анти и IT-проектам</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2 id="projects-title">Опыт и проекты</h2>
+        <p id="projects-text">С 10 класса увлекаюсь IT. Создавал приложения, игры, ботов, сайты, графику, фотошоп-проекты и офисные приложения, основное — программирование.</p>
+    </div>
+
+    <div class="card">
+        <h2 id="goals-title">Цели и мотивация</h2>
+        <p id="goals-text">Стать хорошим руководителем IT-бизнеса, развивать интеллект окружающих и свой. Люблю создавать игры и сайты, а также наслаждаться играми и фильмами.</p>
+    </div>
+
+    <div class="card">
+        <h2 id="qualities-title">Личностные качества</h2>
+        <p id="qualities-text">Живу организованно и стараюсь выполнять всё детально, пунктуально. Стремлюсь быть честным, добрым, веселым, хорошим и умным.</p>
+    </div>
+</main>
+
+    <footer>
+        &copy; 2025 Рахматжонов Асадбек. Все права защищены.
+    </footer>
+    <script>
+const texts = {
+    ru: {
+        pageTitle: "Рахматжонов Асадбек (Нейрон)",
+        pageSubtitle: "Личная страница обо мне",
+        infoTitle: "Основная информация",
+        birth: "Дата рождения: 21.12.2005",
+        city: "Город: Фергана, Узбекистан",
+        study: "Учёба: Университет КИУФ, 2 курс, Программирование",
+        hobbyTitle: "Увлечения и хобби",
+        hobbyList: [
+            "Играю в Mobile Legends",
+            "Изучаю корейский язык",
+            "Знаю русский, узбекский, английский, скоро корейский",
+            "Занимаюсь тяжелой атлетикой и спортом в зале",
+            "Каждый день уделяю время анти и IT-проектам"
+        ],
+        projectsTitle: "Опыт и проекты",
+        projectsText: "С 10 класса увлекаюсь IT. Создавал приложения, игры, ботов, сайты, графику, фотошоп-проекты и офисные приложения, основное — программирование.",
+        goalsTitle: "Цели и мотивация",
+        goalsText: "Стать хорошим руководителем IT-бизнеса, развивать интеллект окружающих и свой. Люблю создавать игры и сайты, а также наслаждаться играми и фильмами.",
+        qualitiesTitle: "Личностные качества",
+        qualitiesText: "Живу организованно и стараюсь выполнять всё детально, пунктуально. Стремлюсь быть честным, добрым, веселым, хорошим и умным."
+    },
+    en: {
+        pageTitle: "Asadbek Rakhmatjonov (Neuron)",
+        pageSubtitle: "Personal page about me",
+        infoTitle: "Basic Information",
+        birth: "Date of birth: 21.12.2005",
+        city: "City: Fergana, Uzbekistan",
+        study: "Education: KIUF University, 2nd year, Programming",
+        hobbyTitle: "Hobbies",
+        hobbyList: [
+            "Play Mobile Legends",
+            "Learning Korean",
+            "Speak Russian, Uzbek, English, soon Korean",
+            "Do weightlifting and gym",
+            "Spend daily time on anti and IT projects"
+        ],
+        projectsTitle: "Experience and Projects",
+        projectsText: "Since 10th grade I am interested in IT. Created apps, games, bots, websites, graphics, Photoshop projects, and office apps, mainly programming.",
+        goalsTitle: "Goals and Motivation",
+        goalsText: "Become a good IT business leader, develop the intelligence of others and myself. Love creating games and websites, and enjoy games and movies.",
+        qualitiesTitle: "Personal Qualities",
+        qualitiesText: "Live organized and try to do everything carefully, punctually. Strive to be honest, kind, cheerful, good, and smart."
+    },
+    uz: {
+        pageTitle: "Rahmatjonov Asadbek (Neuron)",
+        pageSubtitle: "Shaxsiy sahifa haqida",
+        infoTitle: "Asosiy ma'lumotlar",
+        birth: "Tug‘ilgan sana: 21.12.2005",
+        city: "Shahar: Farg‘ona, O‘zbekiston",
+        study: "Ta'lim: KIUF universiteti, 2-kurs, Dasturlash",
+        hobbyTitle: "Qiziqishlar va hobbilari",
+        hobbyList: [
+            "Mobile Legends o‘ynayman",
+            "Koreys tilini o‘rganaman",
+            "Rus, o‘zbek, ingliz tillarini bilaman, tez orada koreys tilini ham o‘rganaman",
+            "Og‘ir atletika va sport zalida shug‘ullanaman",
+            "Har kuni anti va IT loyihalariga vaqt ajrataman"
+        ],
+        projectsTitle: "Tajriba va loyihalar",
+        projectsText: "10-sinfdan beri IT bilan qiziqaman. Ilovalar, o‘yinlar, botlar, saytlar, grafika, Photoshop loyihalari va ofis ilovalarini yaratganman, asosan dasturlashga oid.",
+        goalsTitle: "Maqsadlar va motivatsiya",
+        goalsText: "Yaxshi IT biznes rahbari bo‘lish, atrofdagilarning va o‘z aqlini rivojlantirish. O‘yinlar va saytlar yaratishni, shuningdek, o‘yinlar va filmlardan zavqlanishni yaxshi ko‘raman.",
+        qualitiesTitle: "Shaxsiy fazilatlar",
+        qualitiesText: "Tashkiliy hayot kechirishga harakat qilaman, hamma narsani batafsil va punktual bajarishga intilaman. Halol, mehribon, kulgili, yaxshi va aqlli bo‘lishga intilaman."
+    },
+    ko: {
+        pageTitle: "안녕하세요! 저는 아사드벡입니다 (Neuron)",
+        pageSubtitle: "개인 페이지",
+        infoTitle: "기본 정보",
+        birth: "생년월일: 2005.12.21",
+        city: "도시: 페르가나, 우즈베키스탄",
+        study: "학력: KIUF 대학교, 2학년, 프로그래밍",
+        hobbyTitle: "취미와 관심사",
+        hobbyList: [
+            "Mobile Legends 게임하기",
+            "한국어 공부",
+            "러시아어, 우즈벡어, 영어, 곧 한국어 배우기",
+            "역도 및 헬스장에서 운동",
+            "매일 anti 및 IT 프로젝트에 시간 투자"
+        ],
+        projectsTitle: "경험 및 프로젝트",
+        projectsText: "10학년 때부터 IT에 관심이 있습니다. 앱, 게임, 봇, 웹사이트, 그래픽, 포토샵 프로젝트 및 오피스 앱을 만들었으며, 주로 프로그래밍 관련입니다.",
+        goalsTitle: "목표와 동기",
+        goalsText: "좋은 IT 비즈니스 리더가 되고, 주변 사람들과 나 자신의 지능을 개발하고 싶습니다. 게임과 웹사이트를 만드는 것을 좋아하며, 게임과 영화도 즐깁니다.",
+        qualitiesTitle: "개인적 특성",
+        qualitiesText: "조직적으로 생활하고 모든 것을 세부적으로, 철저히 수행하려고 합니다. 정직하고, 친절하며, 즐겁고, 좋은 사람이며, 똑똑해지려고 노력합니다."
+    }
+};
+
+// Функция setLanguage остается без изменений, как раньше
+function setLanguage(lang) {
+    document.getElementById("page-title").textContent = texts[lang].pageTitle;
+    document.getElementById("page-subtitle").textContent = texts[lang].pageSubtitle;
+    document.getElementById("info-title").textContent = texts[lang].infoTitle;
+    document.getElementById("birth").textContent = texts[lang].birth;
+    document.getElementById("city").textContent = texts[lang].city;
+    document.getElementById("study").textContent = texts[lang].study;
+    document.getElementById("hobby-title").textContent = texts[lang].hobbyTitle;
+
+    const hobbyUl = document.getElementById("hobby-list");
+    hobbyUl.innerHTML = "";
+    texts[lang].hobbyList.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        hobbyUl.appendChild(li);
+    });
+
+    document.getElementById("projects-title").textContent = texts[lang].projectsTitle;
+    document.getElementById("projects-text").textContent = texts[lang].projectsText;
+    document.getElementById("goals-title").textContent = texts[lang].goalsTitle;
+    document.getElementById("goals-text").textContent = texts[lang].goalsText;
+    document.getElementById("qualities-title").textContent = texts[lang].qualitiesTitle;
+    document.getElementById("qualities-text").textContent = texts[lang].qualitiesText;
+
+    // перевод кнопки назад
+    const backBtn = document.getElementById("back-button");
+    if(lang === "ru") backBtn.textContent = "← На главную";
+    else if(lang === "en") backBtn.textContent = "← Back to Home";
+    else if(lang === "uz") backBtn.textContent = "← Bosh sahifaga";
+    else if(lang === "ko") backBtn.textContent = "← 메인으로";
+}
+
+// Применяем язык при загрузке страницы
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('siteLanguage') || 'ru';
+    setLanguage(savedLang);
+});
+</script>
+
+</body>
+</html>
