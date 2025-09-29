@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои игры — Рахматжонов Асадбек</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333;
+        }
+        header {
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+        main {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: rgba(255,255,255,0.85);
+            border-radius: 15px;
+        }
+        h1, h2 {
+            margin-top: 0;
+        }
+        .game-card {
+            background-color: #fff;
+            border: 2px solid #e53935;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .game-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        .game-media {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .game-screenshots {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .screenshot {
+            width: calc(25% - 7.5px);
+            border-radius: 5px;
+            object-fit: cover;
+        }
+        .download-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #e53935;
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .download-button:hover {
+            background-color: #b71c1c;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            background-color: rgba(221,221,221,0.8);
+            border-radius: 10px;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #e53935;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .back-button:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <a href="tasks.html" id="back-button" class="back-button">← На главную</a>
+    <h1 id="page-title">Мои игры — Рахматжонов Асадбек</h1>
+    <p id="page-subtitle">Здесь вы можете увидеть мои мини-игры, скриншоты, видео и скачать исходники</p>
+</header>
+
+<main>
+    <!-- Игра 1 -->
+    <div class="game-card">
+        <video controls class="game-media">
+            <source src="media/vid.mov" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <h2 id="game1-title">Игра Super Battle</h2>
+        <p id="game1-desc">Создана на Python простым красивым и аккуратным кодом</p>
+        <div class="game-screenshots">
+            <img src="media/scrn1.png" alt="Скриншот 1" class="screenshot">
+            <img src="media/scrn2.png" alt="Скриншот 2" class="screenshot">
+            <img src="media/scrn3.png" alt="Скриншот 3" class="screenshot">
+            <img src="media/scrn4.png" alt="Скриншот 4" class="screenshot">
+        </div>
+        <a href="downloads/superbattle.zip" class="download-button" id="game1-download">Скачать игру</a>
+    </div>
+
+    <!-- Игра 2 -->
+    <div class="game-card">
+        <video controls class="game-media">
+            <source src="media/puzzlemaster-demo.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <h2 id="game2-title">Игра Puzzle Master</h2>
+        <p id="game2-desc">Аркадная головоломка, сделанная на C++, с уровнями разной сложности.</p>
+        <div class="game-screenshots">
+            <img src="media/pm1.jpg" alt="Скриншот 1" class="screenshot">
+            <img src="media/pm2.jpg" alt="Скриншот 2" class="screenshot">
+            <img src="media/pm3.jpg" alt="Скриншот 3" class="screenshot">
+            <img src="media/pm4.jpg" alt="Скриншот 4" class="screenshot">
+        </div>
+        <a href="downloads/puzzlemaster.zip" class="download-button" id="game2-download">Скачать игру</a>
+    </div>
+
+</main>
+<!-- Вставляем прямо после main, перед footer -->
+<div id="lightbox" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);justify-content:center;align-items:center;z-index:1000;">
+    <span id="lightbox-close" style="position:absolute;top:20px;right:30px;font-size:40px;color:white;cursor:pointer;">&times;</span>
+    <img id="lightbox-img" src="" style="max-width:90%;max-height:90%;border-radius:10px;">
+</div>
+
+<script>
+// Получаем элементы
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.getElementById('lightbox-close');
+
+// Находим все скриншоты
+const screenshots = document.querySelectorAll('.screenshot');
+
+screenshots.forEach(s => {
+    s.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = s.src; // Подставляем src выбранного скриншота
+    });
+});
+
+// Закрытие при клике на крестик или на фон
+closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+lightbox.addEventListener('click', e => {
+    if(e.target === lightbox) lightbox.style.display = 'none';
+});
+</script>
+
+
+<footer>
+    &copy; 2025 Рахматжонов Асадбек. Все права защищены.
+</footer>
+
+<script>
+const texts = {
+    ru: {
+        pageTitle: "Мои игры — Рахматжонов Асадбек",
+        pageSubtitle: "Здесь вы можете увидеть мои мини-игры, скриншоты, видео и скачать исходники",
+        game1Title: "Игра Super Battle",
+        game1Desc: "Создана на Python простым красивым и аккуратным кодом",
+        game1Download: "Скачать игру",
+        game2Title: "Игра Puzzle Master",
+        game2Desc: "Аркадная головоломка, сделанная на C++, с уровнями разной сложности.",
+        game2Download: "Скачать игру",
+        backButton: "← На главную"
+    },
+    en: {
+        pageTitle: "My Games — Asadbek Rakhmatjonov",
+        pageSubtitle: "Here you can see my mini-games, screenshots, videos and download source files",
+        game1Title: "Game Super Battle",
+        game1Desc: "Created in Python with clean and neat code",
+        game1Download: "Download Game",
+        game2Title: "Game Puzzle Master",
+        game2Desc: "Arcade puzzle in C++, with multiple levels of difficulty.",
+        game2Download: "Download Game",
+        backButton: "← Back to Home"
+    },
+    uz: {
+        pageTitle: "Mening o‘yinlarim — Rahmatjonov Asadbek",
+        pageSubtitle: "Bu yerda siz mening mini-o‘yinlarimni, skrinshotlar, videolarni va kodlarni yuklab olishingiz mumkin",
+        game1Title: "O‘yin Super Battle",
+        game1Desc: "Python’da yaratilgan, oddiy va chiroyli kod bilan.",
+        game1Download: "O‘yinni yuklab olish",
+        game2Title: "O‘yin Puzzle Master",
+        game2Desc: "C++ da yaratilgan arkaada boshqotirma, turli qiyinchilik darajalari bilan.",
+        game2Download: "O‘yinni yuklab olish",
+        backButton: "← Bosh sahifaga"
+    },
+    ko: {
+        pageTitle: "내 게임 — 아사드벡 라흐마트조노프",
+        pageSubtitle: "여기에서 미니 게임, 스크린샷, 비디오 및 소스 파일을 볼 수 있습니다",
+        game1Title: "게임 Super Battle",
+        game1Desc: "Python에서 제작, 깔끔하고 단순한 코드로.",
+        game1Download: "게임 다운로드",
+        game2Title: "게임 Puzzle Master",
+        game2Desc: "C++로 제작된 아케이드 퍼즐, 다양한 난이도 레벨 포함.",
+        game2Download: "게임 다운로드",
+        backButton: "← 메인으로"
+    }
+};
+
+function setLanguage(lang) {
+    document.getElementById("page-title").textContent = texts[lang].pageTitle;
+    document.getElementById("page-subtitle").textContent = texts[lang].pageSubtitle;
+
+    document.getElementById("game1-title").textContent = texts[lang].game1Title;
+    document.getElementById("game1-desc").textContent = texts[lang].game1Desc;
+    document.getElementById("game1-download").textContent = texts[lang].game1Download;
+
+    document.getElementById("game2-title").textContent = texts[lang].game2Title;
+    document.getElementById("game2-desc").textContent = texts[lang].game2Desc;
+    document.getElementById("game2-download").textContent = texts[lang].game2Download;
+
+    document.getElementById("back-button").textContent = texts[lang].backButton;
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('siteLanguage') || 'ru';
+    setLanguage(savedLang);
+});
+</script>
+</body>
+</html>
